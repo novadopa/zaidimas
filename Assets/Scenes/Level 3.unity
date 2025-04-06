@@ -831,6 +831,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 141303036}
+  - component: {fileID: 141303037}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -857,6 +858,22 @@ Transform:
   - {fileID: 407404687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &141303037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141303035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70f4eb66205b5043a4b9826c0f510a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryText: {fileID: 0}
+  messageDelay: 1
+  totalEnemies: 4
+  Manager: {fileID: 1082811604}
 --- !u!1 &184376481
 GameObject:
   m_ObjectHideFlags: 0
@@ -1431,6 +1448,7 @@ GameObject:
   - component: {fileID: 263121121}
   - component: {fileID: 263121120}
   - component: {fileID: 263121125}
+  - component: {fileID: 263121126}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Untagged
@@ -1630,10 +1648,10 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 263121121}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 263121125}
+        m_TargetAssemblyTypeName: Healthcontrol, Assembly-CSharp
+        m_MethodName: HandleDeath
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1642,10 +1660,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 263121123}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 263121126}
+        m_TargetAssemblyTypeName: Congratulations, Assembly-CSharp
+        m_MethodName: OnEnemyDestroyed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1669,7 +1687,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Manager: {fileID: 0}
+  Manager: {fileID: 1082811604}
+  coinPrefab: {fileID: 5464047744359864496, guid: ec4f0f96827fb8d418b5c60c9ee22207, type: 3}
+  minCoins: 1
+  maxCoins: 3
+--- !u!114 &263121126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263121118}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70f4eb66205b5043a4b9826c0f510a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryText: {fileID: 0}
+  messageDelay: 1
+  totalEnemies: 0
+  Manager: {fileID: 1082811604}
 --- !u!1 &297687215
 GameObject:
   m_ObjectHideFlags: 0
@@ -2355,6 +2392,7 @@ GameObject:
   - component: {fileID: 407404690}
   - component: {fileID: 407404689}
   - component: {fileID: 407404688}
+  - component: {fileID: 407404694}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Untagged
@@ -2395,10 +2433,10 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 407404690}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 407404688}
+        m_TargetAssemblyTypeName: Healthcontrol, Assembly-CSharp
+        m_MethodName: HandleDeath
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2407,10 +2445,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 407404692}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 407404694}
+        m_TargetAssemblyTypeName: Congratulations, Assembly-CSharp
+        m_MethodName: OnEnemyDestroyed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2434,7 +2472,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Manager: {fileID: 0}
+  Manager: {fileID: 1082811604}
+  coinPrefab: {fileID: 5464047744359864496, guid: ec4f0f96827fb8d418b5c60c9ee22207, type: 3}
+  minCoins: 1
+  maxCoins: 3
 --- !u!61 &407404689
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2594,6 +2635,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &407404694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407404686}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70f4eb66205b5043a4b9826c0f510a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryText: {fileID: 0}
+  messageDelay: 1
+  totalEnemies: 0
+  Manager: {fileID: 1082811604}
 --- !u!1 &460028727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2609,6 +2666,7 @@ GameObject:
   - component: {fileID: 460028731}
   - component: {fileID: 460028730}
   - component: {fileID: 460028729}
+  - component: {fileID: 460028735}
   m_Layer: 0
   m_Name: Enemy (3)
   m_TagString: Untagged
@@ -2649,10 +2707,10 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 460028731}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 460028729}
+        m_TargetAssemblyTypeName: Healthcontrol, Assembly-CSharp
+        m_MethodName: HandleDeath
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2661,10 +2719,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 460028733}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 460028735}
+        m_TargetAssemblyTypeName: Congratulations, Assembly-CSharp
+        m_MethodName: OnEnemyDestroyed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2688,7 +2746,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Manager: {fileID: 0}
+  Manager: {fileID: 1082811604}
+  coinPrefab: {fileID: 5464047744359864496, guid: ec4f0f96827fb8d418b5c60c9ee22207, type: 3}
+  minCoins: 1
+  maxCoins: 3
 --- !u!61 &460028730
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2848,6 +2909,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &460028735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460028727}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70f4eb66205b5043a4b9826c0f510a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryText: {fileID: 0}
+  messageDelay: 1
+  totalEnemies: 0
+  Manager: {fileID: 1082811604}
 --- !u!1 &486703035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4116,6 +4193,7 @@ GameObject:
   - component: {fileID: 676077448}
   - component: {fileID: 676077450}
   - component: {fileID: 676077451}
+  - component: {fileID: 676077452}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -4315,10 +4393,10 @@ MonoBehaviour:
   OnDied:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 676077448}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 676077451}
+        m_TargetAssemblyTypeName: Healthcontrol, Assembly-CSharp
+        m_MethodName: HandleDeath
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4327,10 +4405,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 676077447}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
+      - m_Target: {fileID: 676077452}
+        m_TargetAssemblyTypeName: Congratulations, Assembly-CSharp
+        m_MethodName: OnEnemyDestroyed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4354,7 +4432,26 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  Manager: {fileID: 0}
+  Manager: {fileID: 1082811604}
+  coinPrefab: {fileID: 5464047744359864496, guid: ec4f0f96827fb8d418b5c60c9ee22207, type: 3}
+  minCoins: 1
+  maxCoins: 3
+--- !u!114 &676077452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676077444}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70f4eb66205b5043a4b9826c0f510a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  victoryText: {fileID: 0}
+  messageDelay: 1
+  totalEnemies: 0
+  Manager: {fileID: 1082811604}
 --- !u!1 &689445934
 GameObject:
   m_ObjectHideFlags: 0
@@ -7299,6 +7396,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   Manager: {fileID: 1082811604}
+  coinPrefab: {fileID: 0}
+  minCoins: 1
+  maxCoins: 3
 --- !u!1 &1406882972
 GameObject:
   m_ObjectHideFlags: 0
